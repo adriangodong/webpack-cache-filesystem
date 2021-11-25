@@ -1,3 +1,9 @@
 {
+    "compilerOptions": {
+        "incremental": true,
+        "skipLibCheck": true,
+        "outFile": "dist/main.js",
+        "module": "amd",
+    },
     "include": ["index.ts"]
 }

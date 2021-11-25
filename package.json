@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "tsc": "tsc --build",
     "build": "webpack --mode=development",
     "build-production": "webpack --mode=production"
   },
