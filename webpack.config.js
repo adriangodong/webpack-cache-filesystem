@@ -19,7 +19,10 @@ module.exports = (env, argv) => ({
                 typescript: {
                     build: true,
                     mode: "write-dts",
-                }
+                },
+                logger: {
+                    infrastructure: "console"
+                },
             })
             : new webpack.DefinePlugin({})
     ],
@@ -27,6 +30,6 @@ module.exports = (env, argv) => ({
         type: "filesystem",
     },
     infrastructureLogging: {
-        debug: /webpack\.cache/
+        debug: true
     },
 });
