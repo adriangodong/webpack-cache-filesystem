@@ -8,20 +8,20 @@ module.exports = (env, argv) => ({
                 test: /\.ts$/,
                 exclude: /(node_modules)/,
                 enforce: "pre",
-                use: [
-                    {
-                        loader: "ts-loader",
-                        options: {
-                            transpileOnly: argv.mode === "development",
-                        }
-                    }
-                ]
+                loader: "ts-loader"
             }
         ]
     },
     entry: "./index.ts",
     plugins: [
-        argv.mode === "development" ? new ForkTsCheckerWebpackPlugin() : new webpack.DefinePlugin({})
+        argv.mode === "development"
+            ? new ForkTsCheckerWebpackPlugin({
+                typescript: {
+                    build: true,
+                    mode: "write-dts",
+                }
+            })
+            : new webpack.DefinePlugin({})
     ],
     cache: {
         type: "filesystem",
